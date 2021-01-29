@@ -34,5 +34,15 @@ app.post('/collection/:collectionName', (req, res, next) => {
     })
 })
 
+const ObjectID = require('mongodb').ObjectID;
+app.get('/collection/:collectionName/:id', (req, res, next) =>{
+    req.collection.findOne(
+        { _id: new ObjectID(req.params.id) },
+        (e, result) => {
+            if (e) return next(e)
+            res.send(result)
+        })
+})
+
 app.listen(3000);
 console.log ('server running on port 3000');
