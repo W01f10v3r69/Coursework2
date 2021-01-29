@@ -1,0 +1,170 @@
+/* Styles are taken from https://github.com/monterail/vuelidate */
+@import url("http://use.fontawesome.com/releases/v5.0.1/css/all.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css");
+
+body {
+  width: 98%;
+  margin: 0 auto;
+  /* font-family: "Lato", sans-serif; */
+}
+
+input.error,
+input.error:focus {
+  border-color: #f79483;
+}
+
+input.valid,
+input.valid:focus {
+  border-color: #4171b8;
+}
+
+input:focus {
+  border-color: #a8a8a8;
+  outline: none;
+}
+
+label {
+  font-size: 0.8125rem;
+  color: #4b6372;
+  margin-bottom: 0.3125rem;
+  margin-left: 0.875rem;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.error-message {
+  display: block;
+  color: #f57f6c;
+}
+
+h1 {
+  color: #374853;
+}
+
+input[type=checkbox] {
+  visibility: hidden;
+  font-size: 1.33333333em;
+  line-height: .75em;
+  vertical-align: -10%;
+  position: relative;
+  left: 5px;
+  color: #555 !important;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+
+input[type=checkbox]:before {
+  font-family: 'Font Awesome 5 Free' !important;
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+input[type=checkbox]:before {
+  font-weight: 400;
+  content: "\f0c8";
+}
+
+input[type=checkbox]:checked:before {
+  font-weight: 900;
+  content: "\f14a";
+}
+
+
+header h1 {
+  padding: 10px 20px;
+}
+
+.row {
+  max-width: 970px !important;
+  margin-left: 20%;
+}
+
+.cart {
+  padding: 20px 50px;
+}
+
+.boxes {
+  margin-top: 20px;
+}
+
+.verify {
+  margin-top: 20px;
+}
+
+/* .submit {
+  margin-top: 20px;
+  float: right;
+} */
+
+.pagecheckout {
+  padding: 20px 50px;
+}
+
+.description {
+  font-size: 150%;
+  margin-top: 50px;
+}
+
+.inventory-message {
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+
+.subject {
+  margin-top: 30px;
+  margin-left: 20px;
+  max-height: 300px;
+  max-width: 100%;
+}
+
+.figure {
+
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
+}
+
+.main {
+  margin-left: 60px;
+  /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+.asc:after {
+  content: "\25B2"
+}
+
+.desc:after {
+  content: "\25BC"
+}
+
+.cart-dropdown {
+  background: rgb(197, 208, 223);
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  color: #333;
+  font-size: 1.3rem;
+  overflow: auto;
+  padding: 0 1rem;
+  position: absolute;
+  right: 0;
+  width: 15rem;
+  
+}
+  .cart-dropdown__list {
+    list-style: none;
+    
+  }
+    li {
+      margin: 1rem 0;
+    }
