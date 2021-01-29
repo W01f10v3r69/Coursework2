@@ -27,5 +27,12 @@ app.get('/collection/:collectionName', (req, res) => {
     });
 });
 
+app.post('/collection/:collectionName', (req, res, next) => {
+    req.collection.insert(req.body, (e, results) => {
+        if (e) return next (e)
+        res.send(results.ops)
+    })
+})
+
 app.listen(3000);
 console.log ('server running on port 3000');
