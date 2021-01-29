@@ -1,0 +1,27 @@
+{
+  "name": "cw-2",
+  "version": "1.0.0",
+  "description": "CST3145 CW-2",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shammah Ekong",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "path": "^0.12.7",
+    "vue": "^2.6.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/W01f10v3r69/Coursework2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/W01f10v3r69/Coursework2/issues"
+  },
+  "homepage": "https://github.com/W01f10v3r69/Coursework2#readme"
+}
