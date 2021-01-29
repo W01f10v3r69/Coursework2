@@ -85,7 +85,7 @@
             </div>
             <!-- end of showProduct-->
             <!-- end of column project-->
-            <div v-else>
+            <div v-else id="checkoutForm">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="panel panel-info">
@@ -99,7 +99,7 @@
                                     </div>
                                 </div><!-- end of form-group -->
 
-                                <form @submit.prevent="submitOrder" autocomplete="off">
+                                <form id="orderForm" @submit.prevent="submitOrder" autocomplete="off">
                                     <div class="form-group">
                                         <div class="col-md-6">
                                             <strong for="name">Name:</strong>
@@ -172,14 +172,15 @@
                                             <label for="business">Business</label>
                                         </div>
                                     </div><!-- end of form-group-->
-                                </form>
 
-                                <div class="form-group">
-                                    <div class="col-md-6">
-                                        <button type="submit" class=" btn btn-primary submit"
-                                            :disabled="$v.order.$invalid" v-on:click="submitOrder">Place Order</button>
-                                    </div><!-- end of col-md-6-->
-                                </div><!-- end of form-group-->
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            <button type="submit" class=" btn btn-primary submit"
+                                                :disabled="$v.order.$invalid" v-on:click="submitOrder">Place Order</button>
+                                        </div><!-- end of col-md-6-->
+                                    </div><!-- end of form-group-->
+
+                                </form>
 
                                 <div class="col-md-12 verify">
                                     <pre>
@@ -208,7 +209,7 @@
         var webstore = new Vue({
             el: '#app',
             data: {
-                sitename: 'Coursework 1 Web App with Vue js',
+                sitename: 'Coursework 2 mongoDB with REST API',
                 subjects: subjects,
                 isHidden: true, //hides cart
                 cart: [],
@@ -327,7 +328,48 @@
                         }
                     }
                     return count;
-                }
+                },
+                async fetchData() {
+                    const response = await fetch('/lessons');
+                    this.lessons = await response.json();
+                },
+                async orders(){
+                    document.getElementById("orderForm").addEventListener("click", (event) => {
+                        event.preventDefault();
+                        const orderData = {
+                            firstName: document.querySelector("#orderFirstName").value,
+                            lastName: document.querySelector("#orderLastName").value,
+                            address: document.querySelector("#orderAddress").value,
+                            city: document.querySelector("#orderCity").value,
+                            phone_no: document.querySelector("#orderPhone").value,
+                            order: this.cart
+                        }
+
+                        //Fetch to POST order data
+                        fetch('/orders', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(orderData),
+                        }).then(this.spacesUpdate());
+                    });
+                },
+                async spacesUpdate(){
+                    const updateData = this.cart;
+
+                    //Fetch to update available lesson spaces after order
+                    fetch('/spacesUpdate', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(updateData),
+                    }).then(window.location = "/")
+                },
+            },
+            created() {
+                this.fetchData();
             },
 
             filters: {
