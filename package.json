@@ -4,7 +4,7 @@
   "description": "CST3145 CW-2",
   "main": "app.js",
   "scripts": {
-    "start": "node app",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Shammah Ekong",
