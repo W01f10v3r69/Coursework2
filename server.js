@@ -14,11 +14,9 @@ app.use(express.static(publicPath));
 
 
 let con =
-MongoClient.connect('mongodb+srv://wolflover:wolflover@nether.rl4hb.mongodb.net/cwdb?retryWrites=true&w=majority',
-{useUnifiedTopology: true}
-// (err, client) => {
-//     db = client.db('cwdb')}
-  );
+MongoClient.connect('mongodb+srv://wolflover:wolflover@nether.rl4hb.mongodb.net/',
+(err, client) => {db = client.db('cwdb');
+ })
 
 // app.param('collectionName', (req, res, next, collectionName) =>{
 //     req.collection = db.collection(collectionName)
