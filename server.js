@@ -12,20 +12,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static(publicPath));
 
+retryWrites=true&w=majority
+let con = MongoClient.connect('mongodb+srv://wolflover:wolflover@nether.rl4hb.mongodb.net/cwdb?retryWrites=true&w=majority',{useUnifiedTopology: true
+// (err, client) => {db = client.db('cwdb');
+ });
 
-let con =
-MongoClient.connect('mongodb+srv://wolflover:wolflover@nether.rl4hb.mongodb.net/',
-(err, client) => {db = client.db('cwdb');
- })
+// app.param('collectionName', (req, res, next, collectionName) =>{
+//     req.collection = db.collection(collectionName)
+//     return next()
+// });
 
-app.param('collectionName', (req, res, next, collectionName) =>{
-    req.collection = db.collection(collectionName)
-    return next()
-});
-
-app.get('/', (req, res) =>{
-    res.send ('Select a collection, e.g., /collection/collectionName')
-});
+// app.get('/', (req, res) =>{
+//     res.send ('Select a collection, e.g., /collection/collectionName')
+// });
 
 //Middleware logger
 app.use((req, res, next) => {
