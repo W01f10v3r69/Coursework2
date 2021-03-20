@@ -18,14 +18,14 @@ MongoClient.connect('mongodb+srv://wolflover:wolflover@nether.rl4hb.mongodb.net/
 (err, client) => {db = client.db('cwdb');
  })
 
-// app.param('collectionName', (req, res, next, collectionName) =>{
-//     req.collection = db.collection(collectionName)
-//     return next()
-// });
-//
-// app.get('/', (req, res) =>{
-//     res.send ('Select a collection, e.g., /collection/collectionName')
-// });
+app.param('collectionName', (req, res, next, collectionName) =>{
+    req.collection = db.collection(collectionName)
+    return next()
+});
+
+app.get('/', (req, res) =>{
+    res.send ('Select a collection, e.g., /collection/collectionName')
+});
 
 //Middleware logger
 app.use((req, res, next) => {
